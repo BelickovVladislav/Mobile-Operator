@@ -32,12 +32,12 @@
             this.TypePhoneLbl = new System.Windows.Forms.Label();
             this.OSlbl = new System.Windows.Forms.Label();
             this.ModelPhone = new System.Windows.Forms.Label();
-            this.Buylbl = new System.Windows.Forms.Label();
+            this.Pricelbl = new System.Windows.Forms.Label();
             this.CompanyNameBox = new System.Windows.Forms.ComboBox();
             this.TypePhoneBox = new System.Windows.Forms.ComboBox();
             this.OSBox = new System.Windows.Forms.ComboBox();
             this.ModelPhoneBox = new System.Windows.Forms.ComboBox();
-            this.BuyBox = new System.Windows.Forms.TextBox();
+            this.PriceBox = new System.Windows.Forms.TextBox();
             this.AddCompanyNameBtn = new System.Windows.Forms.Button();
             this.AddTypePhoneBtn = new System.Windows.Forms.Button();
             this.AddOSBtn = new System.Windows.Forms.Button();
@@ -81,14 +81,14 @@
             this.ModelPhone.TabIndex = 3;
             this.ModelPhone.Text = "Модель телефона";
             // 
-            // Buylbl
+            // Pricelbl
             // 
-            this.Buylbl.AutoSize = true;
-            this.Buylbl.Location = new System.Drawing.Point(35, 188);
-            this.Buylbl.Name = "Buylbl";
-            this.Buylbl.Size = new System.Drawing.Size(33, 13);
-            this.Buylbl.TabIndex = 4;
-            this.Buylbl.Text = "Цена";
+            this.Pricelbl.AutoSize = true;
+            this.Pricelbl.Location = new System.Drawing.Point(35, 188);
+            this.Pricelbl.Name = "Pricelbl";
+            this.Pricelbl.Size = new System.Drawing.Size(33, 13);
+            this.Pricelbl.TabIndex = 4;
+            this.Pricelbl.Text = "Цена";
             // 
             // CompanyNameBox
             // 
@@ -122,12 +122,12 @@
             this.ModelPhoneBox.Size = new System.Drawing.Size(121, 21);
             this.ModelPhoneBox.TabIndex = 8;
             // 
-            // BuyBox
+            // PriceBox
             // 
-            this.BuyBox.Location = new System.Drawing.Point(240, 188);
-            this.BuyBox.Name = "BuyBox";
-            this.BuyBox.Size = new System.Drawing.Size(121, 20);
-            this.BuyBox.TabIndex = 9;
+            this.PriceBox.Location = new System.Drawing.Point(240, 188);
+            this.PriceBox.Name = "PriceBox";
+            this.PriceBox.Size = new System.Drawing.Size(121, 20);
+            this.PriceBox.TabIndex = 9;
             // 
             // AddCompanyNameBtn
             // 
@@ -184,12 +184,12 @@
             this.Controls.Add(this.AddOSBtn);
             this.Controls.Add(this.AddTypePhoneBtn);
             this.Controls.Add(this.AddCompanyNameBtn);
-            this.Controls.Add(this.BuyBox);
+            this.Controls.Add(this.PriceBox);
             this.Controls.Add(this.ModelPhoneBox);
             this.Controls.Add(this.OSBox);
             this.Controls.Add(this.TypePhoneBox);
             this.Controls.Add(this.CompanyNameBox);
-            this.Controls.Add(this.Buylbl);
+            this.Controls.Add(this.Pricelbl);
             this.Controls.Add(this.ModelPhone);
             this.Controls.Add(this.OSlbl);
             this.Controls.Add(this.TypePhoneLbl);
@@ -210,12 +210,12 @@
         private System.Windows.Forms.Label TypePhoneLbl;
         private System.Windows.Forms.Label OSlbl;
         private System.Windows.Forms.Label ModelPhone;
-        private System.Windows.Forms.Label Buylbl;
+        private System.Windows.Forms.Label Pricelbl;
         private System.Windows.Forms.ComboBox CompanyNameBox;
         private System.Windows.Forms.ComboBox TypePhoneBox;
         private System.Windows.Forms.ComboBox OSBox;
         private System.Windows.Forms.ComboBox ModelPhoneBox;
-        private System.Windows.Forms.TextBox BuyBox;
+        private System.Windows.Forms.TextBox PriceBox;
         private System.Windows.Forms.Button AddCompanyNameBtn;
         private System.Windows.Forms.Button AddTypePhoneBtn;
         private System.Windows.Forms.Button AddOSBtn;
