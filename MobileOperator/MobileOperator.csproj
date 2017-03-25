@@ -64,6 +64,12 @@
     <Compile Include="AddModelPhone.Designer.cs">
       <DependentUpon>AddModelPhone.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOwnerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOwnerForm.Designer.cs">
+      <DependentUpon>AddOwnerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddModelPhone.resx">
       <DependentUpon>AddModelPhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOwnerForm.resx">
+      <DependentUpon>AddOwnerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddServiceForm.resx">
       <DependentUpon>AddServiceForm.cs</DependentUpon>
