@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddMobilePhone.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddMobilePhone.Designer.cs">
       <DependentUpon>AddMobilePhone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddModelPhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddModelPhone.Designer.cs">
+      <DependentUpon>AddModelPhone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiceForm.Designer.cs">
+      <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTariffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTariffForm.Designer.cs">
+      <DependentUpon>AddTariffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OwnerForm.cs">
       <SubType>Form</SubType>
@@ -66,8 +90,20 @@
     <Compile Include="MobilePhoneForm.Designer.cs">
       <DependentUpon>MobilePhoneForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddMobilePhone.resx">
       <DependentUpon>AddMobilePhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddModelPhone.resx">
+      <DependentUpon>AddModelPhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddServiceForm.resx">
+      <DependentUpon>AddServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTariffForm.resx">
+      <DependentUpon>AddTariffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OwnerForm.resx">
       <DependentUpon>OwnerForm.cs</DependentUpon>

@@ -46,6 +46,7 @@
             this.PhotoUploadBtn = new System.Windows.Forms.Button();
             this.PhotoLbl = new System.Windows.Forms.Label();
             this.PhotoBox = new System.Windows.Forms.PictureBox();
+            this.CancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,9 +172,9 @@
             // 
             // AddMobilePhoneBtn
             // 
-            this.AddMobilePhoneBtn.Location = new System.Drawing.Point(91, 272);
+            this.AddMobilePhoneBtn.Location = new System.Drawing.Point(184, 264);
             this.AddMobilePhoneBtn.Name = "AddMobilePhoneBtn";
-            this.AddMobilePhoneBtn.Size = new System.Drawing.Size(201, 23);
+            this.AddMobilePhoneBtn.Size = new System.Drawing.Size(204, 23);
             this.AddMobilePhoneBtn.TabIndex = 14;
             this.AddMobilePhoneBtn.Text = "Добавить мобильный телефон";
             this.AddMobilePhoneBtn.UseVisualStyleBackColor = true;
@@ -204,11 +205,21 @@
             this.PhotoBox.TabIndex = 17;
             this.PhotoBox.TabStop = false;
             // 
+            // CancelBtn
+            // 
+            this.CancelBtn.Location = new System.Drawing.Point(16, 264);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(135, 23);
+            this.CancelBtn.TabIndex = 18;
+            this.CancelBtn.Text = "Отмена";
+            this.CancelBtn.UseVisualStyleBackColor = true;
+            // 
             // AddMobilePhone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 311);
+            this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.PhotoBox);
             this.Controls.Add(this.PhotoLbl);
             this.Controls.Add(this.PhotoUploadBtn);
@@ -258,5 +269,6 @@
         private System.Windows.Forms.Button PhotoUploadBtn;
         private System.Windows.Forms.Label PhotoLbl;
         private System.Windows.Forms.PictureBox PhotoBox;
+        private System.Windows.Forms.Button CancelBtn;
     }
 }
