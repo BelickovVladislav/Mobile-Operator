@@ -228,7 +228,7 @@
             // 
             this.PhotoBox.Location = new System.Drawing.Point(325, 358);
             this.PhotoBox.Name = "PhotoBox";
-            this.PhotoBox.Size = new System.Drawing.Size(141, 119);
+            this.PhotoBox.Size = new System.Drawing.Size(131, 119);
             this.PhotoBox.TabIndex = 27;
             this.PhotoBox.TabStop = false;
             // 
