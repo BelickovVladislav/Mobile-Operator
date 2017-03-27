@@ -2,8 +2,11 @@
 {
     class ModelPhone
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        private static string tableName = "model_phone";
+
+
+        public int id { get; set; }
+        public string name { get; set; }
         public Producer producer { get; set; }
     }
 }

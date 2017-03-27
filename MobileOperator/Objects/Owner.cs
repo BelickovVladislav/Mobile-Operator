@@ -4,6 +4,9 @@ namespace MobileOperator.Objects
 {
     class Owner
     {
+        private static string tableName = "owner";
+
+
         public int id { get; set; }
         public MobilePhone mobilePhone { get; set; } 
         public Tariff tariff { get; set; }

@@ -2,6 +2,9 @@
 {
     class MobilePhone
     {
+        private static string tableName = "mobile_phone";
+
+
         public int id { get; set; }
         public Producer producer { get; set; }
         public PhoneType phoneType { get; set; }
