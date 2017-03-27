@@ -74,6 +74,13 @@ namespace MobileOperator.Objects
                 MySqlCommand sqlCom = new MySqlCommand(query, connection);
                 sqlCom.ExecuteNonQuery();
             }
+
+            public string[][] useQuery(string query)
+            {
+                MySqlCommand sqlCom = new MySqlCommand(query, connection);
+                sqlCom.ExecuteNonQuery();
+                return select();
+            }
             public void delete(string where)
             {
                 string query = "DELETE FROM `" + tableName + "` WHERE " + where;

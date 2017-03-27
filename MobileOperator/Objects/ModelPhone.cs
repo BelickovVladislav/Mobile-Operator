@@ -1,7 +1,9 @@
 ﻿namespace MobileOperator.Objects
 {
-    class ModelPhone:DBObject
+    class ModelPhone
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
         public Producer producer { get; set; }
     }
 }

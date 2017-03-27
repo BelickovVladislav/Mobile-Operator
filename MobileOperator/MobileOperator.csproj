@@ -83,7 +83,6 @@
     <Compile Include="AddTariffForm.Designer.cs">
       <DependentUpon>AddTariffForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\DBObject.cs" />
     <Compile Include="Objects\MobilePhone.cs" />
     <Compile Include="Objects\ModelPhone.cs" />
     <Compile Include="Objects\MySQL.cs" />
