@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MobileOperator.Objects
 {
@@ -22,11 +20,18 @@ namespace MobileOperator.Objects
         public static void Add(string name)
         {
             MySQL mySQL = MySQL.getMySQL();
+            mySQL.TableName = tableName;
             mySQL.insert("name",name);
+        }
+        public static void Delete(int id)
+        {
+            MySQL mySQL = MySQL.getMySQL();
+            mySQL.TableName = tableName;
+            mySQL.delete("id = "+id);
         }
         public OS(int id)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            mySQL = MySQL.getMySQL();
             mySQL.TableName = tableName;
             this.id = id;
             this.name = mySQL.select("id = " + id)[0][1];
