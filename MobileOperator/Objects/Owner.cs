@@ -7,7 +7,7 @@ namespace MobileOperator.Objects
         private static string tableName = "owner";
 
 
-        public int id { get; set; }
+        public int id { get; private set; }
         public MobilePhone mobilePhone { get; set; } 
         public Tariff tariff { get; set; }
         public string surname { get; set; }

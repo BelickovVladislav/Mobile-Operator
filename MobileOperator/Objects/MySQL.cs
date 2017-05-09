@@ -6,11 +6,11 @@ namespace MobileOperator.Objects
 {
     class MySQL
     {
-        private static MySQL mySQL;
-        public static MySQL getMySQL()
+        private static MySQL instance;
+        public static MySQL getInstance()
         {
-            mySQL = mySQL ?? new MySQL();
-            return mySQL;
+            instance = instance ?? new MySQL();
+            return instance;
         }
             private string tableName;
             private MySqlConnection connection;

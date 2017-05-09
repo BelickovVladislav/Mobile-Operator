@@ -5,11 +5,12 @@ namespace MobileOperator.Objects
     class PhoneType
     {
         private static string tableName = "phone_type";
-
+        private string name;
+        private MySQL mySQL;
         public static List<PhoneType> getList()
         {
             List<PhoneType> list = new List<PhoneType>();
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             string[][] result = mySQL.select();
             foreach (string[] res in result)
@@ -20,26 +21,26 @@ namespace MobileOperator.Objects
         }
         public static void Add(string name)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.insert("name", name);
         }
         public static void Delete(int id)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.delete("id = " + id);
         }
-        private MySQL mySQL;
+        
         public PhoneType(int id)
         {
-            mySQL = MySQL.getMySQL();
+            mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             this.id = id;
             this.name = mySQL.select("id = " + id)[0][1];
         }
         public int id { get; private set; }
-        public string name;
+ 
         public string Name
         {
             get { return name; }

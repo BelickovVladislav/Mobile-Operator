@@ -9,7 +9,7 @@ namespace MobileOperator.Objects
         public static List<ModelPhone> getList()
         {
             List<ModelPhone> list = new List<ModelPhone>();
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             string[][] result = mySQL.select();
             foreach (string[] res in result)
@@ -20,20 +20,20 @@ namespace MobileOperator.Objects
         }
         public static void Add(string name)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.insert("name", name);
         }
         public static void Delete(int id)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.delete("id = " + id);
         }
         private MySQL mySQL;
         public ModelPhone(int id)
         {
-            mySQL = MySQL.getMySQL();
+            mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             this.id = id;
             string[][] result = mySQL.select("id = " + id);

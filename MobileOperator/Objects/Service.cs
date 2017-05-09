@@ -8,7 +8,7 @@ namespace MobileOperator.Objects
         public static List<Service> getList()
         {
             List<Service> list = new List<Service>();
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             string[][] result = mySQL.select();
             foreach (string[] res in result)
@@ -19,7 +19,7 @@ namespace MobileOperator.Objects
         }
         public static void Add(string name, string description, double price)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.insert("name, description, price", string.Format("{0}, {1}, {2}",name,description,price));
 
@@ -27,14 +27,14 @@ namespace MobileOperator.Objects
         }
         public static void Delete(int id)
         {
-            MySQL mySQL = MySQL.getMySQL();
+            MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.delete("id = " + id);
         }
         private MySQL mySQL;
         public Service(int id)
         {
-            mySQL = MySQL.getMySQL();
+            mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             string[][] result = mySQL.select("id = "+id);
             this.id = id;
