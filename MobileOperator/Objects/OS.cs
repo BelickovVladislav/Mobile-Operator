@@ -21,7 +21,7 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("name",name);
+            mySQL.insert("`name`", string.Format("\"{0}\"",name));
         }
         public static void Delete(int id)
         {
@@ -47,7 +47,7 @@ namespace MobileOperator.Objects
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update("name = "+name, "id = "+id);
+                mySQL.update("name = \""+name+"\"", "id = "+id);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileOperator.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,22 @@ namespace MobileOperator
         public OwnerForm()
         {
             InitializeComponent();
+            var list = Objects.Owner.getList();
+            foreach (var user in list)
+            {
+                OwnerView.Rows.Add(user.firstName+" "+user.middleName+" "+user.surname, user.mobileNumber);
+            }
+
         }
 
-    
+        private void OwnerForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void OwnerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MySQL.getInstance().close();
+        }
     }
 }
