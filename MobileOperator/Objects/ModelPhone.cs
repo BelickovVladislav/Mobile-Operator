@@ -41,7 +41,7 @@ namespace MobileOperator.Objects
             this._producer = new Producer(int.Parse(result[0][1]));
         }
         public int id { get; private set; }
-        public string name;
+        private string name;
         public string Name
         {
             get { return name; }
@@ -60,7 +60,7 @@ namespace MobileOperator.Objects
             get { return _producer; }
             set
             {
-                if (value.id == _producer.id && value.name == _producer.name)
+                if (value.id == _producer.id)
                     return;
                 _producer = value;
                 mySQL.update("id_producer = "+_producer.id,"id = "+id );

@@ -5,6 +5,8 @@ namespace MobileOperator.Objects
     class Service
     {
         private static string tableName = "service";
+
+
         public static List<Service> getList()
         {
             List<Service> list = new List<Service>();
