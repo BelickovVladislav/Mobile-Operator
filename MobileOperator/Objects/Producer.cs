@@ -2,7 +2,7 @@
 
 namespace MobileOperator.Objects
 {
-    class Producer
+    public class Producer
     {
         private static string tableName = "producer";
         private string name;
@@ -23,7 +23,7 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("name", name);
+            mySQL.insert("name", "'" + name + "'");
         }
         public static void Delete(int id)
         {
@@ -39,8 +39,9 @@ namespace MobileOperator.Objects
             this.id = id;
             this.name = mySQL.select("id = " + id)[0][1];
         }
-        public int id {get; private set; }
-        public string Name {
+        public int id { get; private set; }
+        public string Name
+        {
             get { return name; }
             set
             {
@@ -48,7 +49,7 @@ namespace MobileOperator.Objects
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update("name = " + name, "id = " + id);
+                mySQL.update("name = '" + name + "'", "id = " + id);
             }
         }
     }

@@ -2,9 +2,21 @@
 
 namespace MobileOperator.Objects
 {
-    class ModelPhone
+    public class ModelPhone
     {
         private static string tableName = "model_phone";
+
+        public static List<ModelPhone> getListByProducerId(int id) {
+            List<ModelPhone> list = new List<ModelPhone>();
+            MySQL mySQL = MySQL.getInstance();
+            mySQL.TableName = tableName;
+            string[][] result = mySQL.select("id_producer = "+id);
+            foreach (string[] res in result)
+            {
+                list.Add(new ModelPhone(int.Parse(res[0])));
+            }
+            return list;
+        }
 
         public static List<ModelPhone> getList()
         {
@@ -22,7 +34,7 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("`name`, `id_producer`", string.Format("`{0}`, `{1}`", name, producer.id));
+            mySQL.insert("`name`, `id_producer`", string.Format("'{0}', '{1}'", name, producer.id));
         }
         public static void Delete(int id)
         {
@@ -51,7 +63,7 @@ namespace MobileOperator.Objects
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update(string.Format("`name` = `{0}`",  name), "`id` = " + id);
+                mySQL.update(string.Format("`name` = '{0}'", name), "`id` = " + id);
             }
         }
         private Producer _producer;
@@ -63,7 +75,7 @@ namespace MobileOperator.Objects
                 if (value.id == _producer.id)
                     return;
                 _producer = value;
-                mySQL.update("`id_producer` = " + _producer.id, "`id` = " + id );
+                mySQL.update("`id_producer` = " + _producer.id, "`id` = " + id);
             }
         }
     }

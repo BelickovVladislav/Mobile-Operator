@@ -13,17 +13,18 @@ namespace MobileOperator
 {
     public partial class OwnerForm : Form
     {
+        private List<Objects.Owner> list = Objects.Owner.getList();
         public OwnerForm()
         {
             InitializeComponent();
-            var list = Objects.Owner.getList();
+            
             foreach (var user in list)
-            {
-                OwnerView.Rows.Add(user.firstName+" "+user.middleName+" "+user.surname, user.mobileNumber);
+            { 
+                OwnerView.Rows.Add(user.id, user.firstName+" "+user.middleName+" "+user.surname, user.mobileNumber, user.passportNumber, "x");
             }
 
         }
-
+        
         private void OwnerForm_Load(object sender, EventArgs e)
         {
             
@@ -32,6 +33,26 @@ namespace MobileOperator
         private void OwnerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             MySQL.getInstance().close();
+        }
+
+        private void OwnerView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((((DataGridView)sender).Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell) == null)
+            {
+                foreach (var user in list)
+                    if (user.id == int.Parse((((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString())))
+                    {
+                        AddOwnerForm ownerForm = new AddOwnerForm(user);
+                        ownerForm.ShowDialog();
+                        return;
+                    }
+            }
+            else
+            {
+                MessageBox.Show(this,"Вы действительно желаете удалить данную запись?");//TODO Owner.delete(id);
+            }
+
+
         }
     }
 }

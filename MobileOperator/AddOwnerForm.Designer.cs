@@ -79,25 +79,27 @@
             // 
             // PhoneBox
             // 
+            this.PhoneBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PhoneBox.FormattingEnabled = true;
-            this.PhoneBox.Location = new System.Drawing.Point(170, 80);
+            this.PhoneBox.Location = new System.Drawing.Point(170, 69);
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.Size = new System.Drawing.Size(131, 21);
             this.PhoneBox.TabIndex = 3;
             // 
             // AddPhoneBtn
             // 
-            this.AddPhoneBtn.Location = new System.Drawing.Point(325, 80);
+            this.AddPhoneBtn.Location = new System.Drawing.Point(328, 69);
             this.AddPhoneBtn.Name = "AddPhoneBtn";
             this.AddPhoneBtn.Size = new System.Drawing.Size(131, 23);
             this.AddPhoneBtn.TabIndex = 4;
             this.AddPhoneBtn.Text = "Добавить телефон";
             this.AddPhoneBtn.UseVisualStyleBackColor = true;
+            this.AddPhoneBtn.Click += new System.EventHandler(this.AddPhoneBtn_Click);
             // 
             // PhoneLbl
             // 
             this.PhoneLbl.AutoSize = true;
-            this.PhoneLbl.Location = new System.Drawing.Point(8, 80);
+            this.PhoneLbl.Location = new System.Drawing.Point(11, 69);
             this.PhoneLbl.Name = "PhoneLbl";
             this.PhoneLbl.Size = new System.Drawing.Size(52, 13);
             this.PhoneLbl.TabIndex = 5;
@@ -106,7 +108,7 @@
             // TariffLbl
             // 
             this.TariffLbl.AutoSize = true;
-            this.TariffLbl.Location = new System.Drawing.Point(8, 127);
+            this.TariffLbl.Location = new System.Drawing.Point(12, 116);
             this.TariffLbl.Name = "TariffLbl";
             this.TariffLbl.Size = new System.Drawing.Size(40, 13);
             this.TariffLbl.TabIndex = 8;
@@ -114,17 +116,19 @@
             // 
             // AddTariffBtn
             // 
-            this.AddTariffBtn.Location = new System.Drawing.Point(325, 127);
+            this.AddTariffBtn.Location = new System.Drawing.Point(328, 116);
             this.AddTariffBtn.Name = "AddTariffBtn";
             this.AddTariffBtn.Size = new System.Drawing.Size(131, 23);
             this.AddTariffBtn.TabIndex = 7;
             this.AddTariffBtn.Text = "Добавить тариф";
             this.AddTariffBtn.UseVisualStyleBackColor = true;
+            this.AddTariffBtn.Click += new System.EventHandler(this.AddTariffBtn_Click);
             // 
             // TariffBox
             // 
+            this.TariffBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TariffBox.FormattingEnabled = true;
-            this.TariffBox.Location = new System.Drawing.Point(170, 127);
+            this.TariffBox.Location = new System.Drawing.Point(170, 118);
             this.TariffBox.Name = "TariffBox";
             this.TariffBox.Size = new System.Drawing.Size(131, 21);
             this.TariffBox.TabIndex = 6;
@@ -132,32 +136,34 @@
             // ServiceLbl
             // 
             this.ServiceLbl.AutoSize = true;
-            this.ServiceLbl.Location = new System.Drawing.Point(8, 177);
+            this.ServiceLbl.Location = new System.Drawing.Point(12, 165);
             this.ServiceLbl.Name = "ServiceLbl";
-            this.ServiceLbl.Size = new System.Drawing.Size(43, 13);
+            this.ServiceLbl.Size = new System.Drawing.Size(67, 13);
             this.ServiceLbl.TabIndex = 18;
-            this.ServiceLbl.Text = "Услуги";
+            this.ServiceLbl.Text = "Доп. услуги";
             // 
             // ServiceLstUse
             // 
             this.ServiceLstUse.FormattingEnabled = true;
-            this.ServiceLstUse.Location = new System.Drawing.Point(325, 177);
+            this.ServiceLstUse.Location = new System.Drawing.Point(328, 165);
             this.ServiceLstUse.Name = "ServiceLstUse";
             this.ServiceLstUse.Size = new System.Drawing.Size(131, 95);
             this.ServiceLstUse.TabIndex = 17;
+            this.ServiceLstUse.Click += new System.EventHandler(this.ServiceLstUse_Click);
             // 
             // ServiceLstUnuse
             // 
             this.ServiceLstUnuse.FormattingEnabled = true;
-            this.ServiceLstUnuse.Location = new System.Drawing.Point(170, 177);
+            this.ServiceLstUnuse.Location = new System.Drawing.Point(170, 165);
             this.ServiceLstUnuse.Name = "ServiceLstUnuse";
             this.ServiceLstUnuse.Size = new System.Drawing.Size(131, 95);
             this.ServiceLstUnuse.TabIndex = 16;
+            this.ServiceLstUnuse.Click += new System.EventHandler(this.ServiceLstUnuse_Click);
             // 
             // SexLbl
             // 
             this.SexLbl.AutoSize = true;
-            this.SexLbl.Location = new System.Drawing.Point(8, 300);
+            this.SexLbl.Location = new System.Drawing.Point(8, 282);
             this.SexLbl.Name = "SexLbl";
             this.SexLbl.Size = new System.Drawing.Size(27, 13);
             this.SexLbl.TabIndex = 20;
@@ -165,18 +171,19 @@
             // 
             // SexBox
             // 
+            this.SexBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SexBox.FormattingEnabled = true;
             this.SexBox.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
-            this.SexBox.Location = new System.Drawing.Point(170, 300);
+            this.SexBox.Location = new System.Drawing.Point(170, 282);
             this.SexBox.Name = "SexBox";
             this.SexBox.Size = new System.Drawing.Size(131, 21);
             this.SexBox.TabIndex = 19;
             // 
             // PassportBox
             // 
-            this.PassportBox.Location = new System.Drawing.Point(170, 358);
+            this.PassportBox.Location = new System.Drawing.Point(170, 332);
             this.PassportBox.Name = "PassportBox";
             this.PassportBox.Size = new System.Drawing.Size(131, 20);
             this.PassportBox.TabIndex = 21;
@@ -184,7 +191,7 @@
             // PassportLbl
             // 
             this.PassportLbl.AutoSize = true;
-            this.PassportLbl.Location = new System.Drawing.Point(8, 358);
+            this.PassportLbl.Location = new System.Drawing.Point(8, 332);
             this.PassportLbl.Name = "PassportLbl";
             this.PassportLbl.Size = new System.Drawing.Size(91, 13);
             this.PassportLbl.TabIndex = 22;
@@ -192,7 +199,7 @@
             // 
             // NumberPhoneBox
             // 
-            this.NumberPhoneBox.Location = new System.Drawing.Point(170, 406);
+            this.NumberPhoneBox.Location = new System.Drawing.Point(170, 380);
             this.NumberPhoneBox.Name = "NumberPhoneBox";
             this.NumberPhoneBox.Size = new System.Drawing.Size(131, 20);
             this.NumberPhoneBox.TabIndex = 23;
@@ -200,7 +207,7 @@
             // NumberPhoneLbl
             // 
             this.NumberPhoneLbl.AutoSize = true;
-            this.NumberPhoneLbl.Location = new System.Drawing.Point(8, 406);
+            this.NumberPhoneLbl.Location = new System.Drawing.Point(8, 380);
             this.NumberPhoneLbl.Name = "NumberPhoneLbl";
             this.NumberPhoneLbl.Size = new System.Drawing.Size(93, 13);
             this.NumberPhoneLbl.TabIndex = 24;
@@ -208,17 +215,18 @@
             // 
             // PhotoUploadBtn
             // 
-            this.PhotoUploadBtn.Location = new System.Drawing.Point(170, 455);
+            this.PhotoUploadBtn.Location = new System.Drawing.Point(170, 429);
             this.PhotoUploadBtn.Name = "PhotoUploadBtn";
             this.PhotoUploadBtn.Size = new System.Drawing.Size(131, 23);
             this.PhotoUploadBtn.TabIndex = 25;
             this.PhotoUploadBtn.Text = "Загрузить фото";
             this.PhotoUploadBtn.UseVisualStyleBackColor = true;
+            this.PhotoUploadBtn.Click += new System.EventHandler(this.PhotoUploadBtn_Click);
             // 
             // PhotoLbl
             // 
             this.PhotoLbl.AutoSize = true;
-            this.PhotoLbl.Location = new System.Drawing.Point(8, 464);
+            this.PhotoLbl.Location = new System.Drawing.Point(11, 429);
             this.PhotoLbl.Name = "PhotoLbl";
             this.PhotoLbl.Size = new System.Drawing.Size(35, 13);
             this.PhotoLbl.TabIndex = 26;
@@ -226,20 +234,23 @@
             // 
             // PhotoBox
             // 
-            this.PhotoBox.Location = new System.Drawing.Point(325, 358);
+            this.PhotoBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PhotoBox.Location = new System.Drawing.Point(325, 332);
             this.PhotoBox.Name = "PhotoBox";
             this.PhotoBox.Size = new System.Drawing.Size(131, 119);
+            this.PhotoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PhotoBox.TabIndex = 27;
             this.PhotoBox.TabStop = false;
             // 
             // AddOwnerBtn
             // 
-            this.AddOwnerBtn.Location = new System.Drawing.Point(9, 497);
+            this.AddOwnerBtn.Location = new System.Drawing.Point(11, 471);
             this.AddOwnerBtn.Name = "AddOwnerBtn";
             this.AddOwnerBtn.Size = new System.Drawing.Size(455, 23);
             this.AddOwnerBtn.TabIndex = 28;
             this.AddOwnerBtn.Text = "Добавить клиента";
             this.AddOwnerBtn.UseVisualStyleBackColor = true;
+            this.AddOwnerBtn.Click += new System.EventHandler(this.AddOwnerBtn_Click);
             // 
             // SurnameLbl
             // 
@@ -272,7 +283,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 532);
+            this.ClientSize = new System.Drawing.Size(479, 508);
             this.Controls.Add(this.MiddleNameLbl);
             this.Controls.Add(this.FirstNameLbl);
             this.Controls.Add(this.SurnameLbl);
@@ -298,6 +309,7 @@
             this.Controls.Add(this.MiddleNameBox);
             this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.SurnameBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddOwnerForm";

@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OwnerView = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passport_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.info = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OwnerView)).BeginInit();
             this.SuspendLayout();
@@ -40,18 +42,20 @@
             // 
             this.OwnerView.AllowUserToAddRows = false;
             this.OwnerView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OwnerView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OwnerView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.OwnerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OwnerView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.fio,
             this.PhoneNumber,
+            this.passport_data,
             this.info});
             this.OwnerView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OwnerView.EnableHeadersVisualStyles = false;
@@ -61,10 +65,19 @@
             this.OwnerView.RowHeadersVisible = false;
             this.OwnerView.Size = new System.Drawing.Size(725, 287);
             this.OwnerView.TabIndex = 0;
+            this.OwnerView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OwnerView_CellClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 20;
             // 
             // fio
             // 
             this.fio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fio.FillWeight = 140.2597F;
             this.fio.HeaderText = "Фамилия Имя Отчество";
             this.fio.Name = "fio";
             this.fio.ReadOnly = true;
@@ -72,13 +85,22 @@
             // PhoneNumber
             // 
             this.PhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PhoneNumber.FillWeight = 140.2597F;
             this.PhoneNumber.HeaderText = "Номер телефона";
             this.PhoneNumber.Name = "PhoneNumber";
             this.PhoneNumber.ReadOnly = true;
             // 
+            // passport_data
+            // 
+            this.passport_data.HeaderText = "Номер паспорта";
+            this.passport_data.Name = "passport_data";
+            this.passport_data.ReadOnly = true;
+            this.passport_data.Width = 150;
+            // 
             // info
             // 
             this.info.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.info.FillWeight = 19.48052F;
             this.info.HeaderText = "";
             this.info.Name = "info";
             this.info.ReadOnly = true;
@@ -101,8 +123,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView OwnerView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fio;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passport_data;
         private System.Windows.Forms.DataGridViewButtonColumn info;
     }
 }

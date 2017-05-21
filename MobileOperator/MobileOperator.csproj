@@ -83,6 +83,12 @@
     <Compile Include="AddTariffForm.Designer.cs">
       <DependentUpon>AddTariffForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UploadPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadPhoto.Designer.cs">
+      <DependentUpon>UploadPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Objects\MobilePhone.cs" />
     <Compile Include="Objects\ModelPhone.cs" />
     <Compile Include="Objects\MySQL.cs" />
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddTariffForm.resx">
       <DependentUpon>AddTariffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadPhoto.resx">
+      <DependentUpon>UploadPhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OwnerForm.resx">
       <DependentUpon>OwnerForm.cs</DependentUpon>

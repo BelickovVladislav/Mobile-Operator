@@ -2,7 +2,7 @@
 
 namespace MobileOperator.Objects
 {
-    class MobilePhone
+    public class MobilePhone
     {
         private static string tableName = "mobile_phone";
         private MySQL mySQL;
@@ -27,17 +27,17 @@ namespace MobileOperator.Objects
             return list;
         }
         public static void Add(
-            Producer producer, 
-            PhoneType phoneType, 
-            OS os, 
+            Producer producer,
+            PhoneType phoneType,
+            OS os,
             ModelPhone modelPhone,
-            string photoUrl, 
+            string photoUrl,
             double price)
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
             mySQL.insert("`id_producer`, `id_phone_type`, `id_os`, `id_model_phone`, `photo_url`, `price`",
-                string.Format("{0}, {1}, {2}, {3}, `{4}`, `{5}`", 
+                string.Format("'{0}', '{1}', '{2}', '{3}', '{4}', '{5}'",
                 producer.id, phoneType.id, os.id, photoUrl, price));
         }
         public static void Delete(int id)
@@ -50,6 +50,7 @@ namespace MobileOperator.Objects
         {
             mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
+            this.id = id;
             string[] result = mySQL.select("id = " + id)[0];
             _producer = new Producer(int.Parse(result[1]));
             _phoneType = new PhoneType(int.Parse(result[2]));
@@ -60,7 +61,7 @@ namespace MobileOperator.Objects
 
         }
 
-        public int id { get;private set; }
+        public int id { get; private set; }
         public Producer producer
         {
             get { return _producer; }
@@ -69,13 +70,66 @@ namespace MobileOperator.Objects
                 if (value.id == _producer.id)
                     return;
                 _producer = value;
-                mySQL.update("`id_producer` = " + _producer.id, "`id` = " + id);
+                mySQL.update("`id_producer` = " + _producer.id, "`id` = " + "'" + id + "'");
             }
         }
-        public PhoneType phoneType { get; set; }
-        public OS os { get; set; }
-        public ModelPhone modelPhone { get; set; }
-        public string photoUrl { get; set; }
-        public double price { get; set; }
+        public PhoneType phoneType
+        {
+            get
+            {
+                return _phoneType;
+            }
+            set
+            {
+                if (_phoneType.id == value.id)
+                    return;
+                _phoneType = value;
+                mySQL.update("`id_phone_Type` = " + _phoneType.id, "`id` = " + "'" + id + "'");
+            }
+        }
+        public OS os
+        {
+            get { return _os; }
+            set
+            {
+                if (_os.id == value.id)
+                    return;
+                _os = value;
+                mySQL.update("`id_os` = " + _os.id, "`id` = " + "'" + id + "'");
+            }
+        }
+        public ModelPhone modelPhone
+        {
+            get { return _modelPhone; }
+            set
+            {
+                if (_modelPhone.id == value.id)
+                    return;
+                _modelPhone = value;
+                mySQL.update("`id_model_Phone` = " + _modelPhone.id, "`id` = " + "'" + id + "'");
+            }
+        }
+        public string photoUrl
+        {
+            get { return _photoUrl; }
+            set
+            {
+                if (_photoUrl == value)
+                    return;
+                _photoUrl = value;
+                mySQL.update("`photo_url` = '" + _photoUrl + "'", "`id` = " + "'" + id + "'");
+            }
+        }
+        public double price
+        {
+            get { return _price; }
+            set
+            {
+                if (_price == value)
+                    return;
+                _price = value;
+                mySQL.update("`price` = '" + _price + "'", "`id` = " + "'" + id + "'");
+            }
+        }
     }
 }

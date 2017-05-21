@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 namespace MobileOperator.Objects
 {
-    class Tariff
+    public class Tariff
     {
         private static string tableName = "tariff";
         private MySQL mySQL;
@@ -25,7 +25,7 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("name, description, price", string.Format("{0},{1},{2}",name,description,price));
+            mySQL.insert("name, description, price", string.Format("'{0}','{1}','{2}'", name, description, price));
         }
         public static void Delete(int id)
         {
@@ -43,7 +43,7 @@ namespace MobileOperator.Objects
             description = result[0][2];
             price = double.Parse(result[0][3]);
         }
-        public int id { get;private set; }
+        public int id { get; private set; }
         public string Name
         {
             get { return name; }
@@ -53,7 +53,7 @@ namespace MobileOperator.Objects
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update("name = " + name, "id = " + id);
+                mySQL.update("name = '" + name + "'", "id = " + id);
             }
         }
         public string Description
@@ -65,7 +65,7 @@ namespace MobileOperator.Objects
                     return;
                 description = value;
                 mySQL.TableName = tableName;
-                mySQL.update("description = " + description, "id = " + id);
+                mySQL.update("description = '" + description + "'", "id = " + id);
             }
         }
         public double Price
@@ -77,10 +77,11 @@ namespace MobileOperator.Objects
                     return;
                 price = value;
                 mySQL.TableName = tableName;
-                mySQL.update("price = " + price, "id = " + id);
+                mySQL.update("price = '" + price + "'", "id = " + id);
             }
         }
-        public List<Service> Services {
+        public List<Service> Services
+        {
             get
             {
                 if (services == null)
@@ -95,12 +96,13 @@ namespace MobileOperator.Objects
                     return list;
                 }
                 return services;
-            } set
+            }
+            set
             {
                 mySQL.TableName = "include_tariff";
                 mySQL.delete("id_tariff = " + id);
                 foreach (var val in value)
-                    mySQL.insert("id_tariff, id_service", string.Format("{0},{1}", id, val.id));
+                    mySQL.insert("id_tariff, id_service", string.Format("'{0}','{1}'", id, val.id));
                 services = value;
             }
         }

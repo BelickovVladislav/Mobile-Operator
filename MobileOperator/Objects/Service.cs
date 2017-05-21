@@ -2,7 +2,7 @@
 
 namespace MobileOperator.Objects
 {
-    class Service
+    public class Service
     {
         private static string tableName = "service";
 
@@ -23,9 +23,9 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("name, description, price", string.Format("{0}, {1}, {2}",name,description,price));
+            mySQL.insert("name, description, price", string.Format("'{0}', '{1}', '{2}'", name, description, price));
 
-           
+
         }
         public static void Delete(int id)
         {
@@ -38,7 +38,7 @@ namespace MobileOperator.Objects
         {
             mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            string[][] result = mySQL.select("id = "+id);
+            string[][] result = mySQL.select("id = " + id);
             this.id = id;
             name = result[0][1];
             description = result[0][2];
@@ -49,7 +49,8 @@ namespace MobileOperator.Objects
         private string name, description;
         private double price;
         public int id { get; private set; }
-        public string Name {
+        public string Name
+        {
             get { return name; }
             set
             {
@@ -57,10 +58,11 @@ namespace MobileOperator.Objects
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update("name = "+name, "id = "+id);
+                mySQL.update("name = " + name, "id = " + id);
             }
         }
-        public string Description {
+        public string Description
+        {
             get { return description; }
             set
             {
@@ -68,7 +70,7 @@ namespace MobileOperator.Objects
                     return;
                 description = value;
                 mySQL.TableName = tableName;
-                mySQL.update("description = " + description, "id = " + id);
+                mySQL.update("description = '" + description + "'", "id = " + id);
             }
         }
         public double Price
@@ -80,9 +82,9 @@ namespace MobileOperator.Objects
                     return;
                 price = value;
                 mySQL.TableName = tableName;
-                mySQL.update("price = " + price, "id = " + id);
+                mySQL.update("price = '" + price + "'", "id = " + id);
             }
         }
     }
-    
+
 }

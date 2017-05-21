@@ -2,7 +2,7 @@
 
 namespace MobileOperator.Objects
 {
-    class OS
+    public class OS
     {
         private static string tableName = "os";
         public static List<OS> getList()
@@ -10,7 +10,7 @@ namespace MobileOperator.Objects
             List<OS> list = new List<OS>();
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            string[][] result =  mySQL.select();
+            string[][] result = mySQL.select();
             foreach (string[] res in result)
             {
                 list.Add(new OS(int.Parse(res[0])));
@@ -21,13 +21,13 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("`name`", string.Format("\"{0}\"",name));
+            mySQL.insert("`name`", string.Format("'{0}'", name));
         }
         public static void Delete(int id)
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.delete("id = "+id);
+            mySQL.delete("id = " + id);
         }
         public OS(int id)
         {
@@ -40,14 +40,15 @@ namespace MobileOperator.Objects
         public int id { get; private set; }
         private string name;
         public string Name
-        { get { return name; }
-          set
+        {
+            get { return name; }
+            set
             {
                 if (value == name)
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update("name = \""+name+"\"", "id = "+id);
+                mySQL.update("name = '" + name + "'", "id = " + id);
             }
         }
 

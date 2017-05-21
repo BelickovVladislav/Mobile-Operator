@@ -81,6 +81,7 @@
             this.ServiceLstUnuse.Name = "ServiceLstUnuse";
             this.ServiceLstUnuse.Size = new System.Drawing.Size(120, 95);
             this.ServiceLstUnuse.TabIndex = 9;
+            this.ServiceLstUnuse.Click += new System.EventHandler(this.ServiceLstUnuse_Click);
             // 
             // ServiceLstUse
             // 
@@ -89,6 +90,7 @@
             this.ServiceLstUse.Name = "ServiceLstUse";
             this.ServiceLstUse.Size = new System.Drawing.Size(120, 95);
             this.ServiceLstUse.TabIndex = 10;
+            this.ServiceLstUse.Click += new System.EventHandler(this.ServiceLstUse_Click);
             // 
             // AddService
             // 
@@ -107,6 +109,7 @@
             this.AddBtn.TabIndex = 14;
             this.AddBtn.Text = "Добавить";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // PriceBox
             // 

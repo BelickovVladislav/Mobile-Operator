@@ -2,7 +2,7 @@
 
 namespace MobileOperator.Objects
 {
-    class PhoneType
+    public class PhoneType
     {
         private static string tableName = "phone_type";
         private string name;
@@ -23,7 +23,7 @@ namespace MobileOperator.Objects
         {
             MySQL mySQL = MySQL.getInstance();
             mySQL.TableName = tableName;
-            mySQL.insert("name", name);
+            mySQL.insert("name", "'" + name + "'");
         }
         public static void Delete(int id)
         {
@@ -31,7 +31,7 @@ namespace MobileOperator.Objects
             mySQL.TableName = tableName;
             mySQL.delete("id = " + id);
         }
-        
+
         public PhoneType(int id)
         {
             mySQL = MySQL.getInstance();
@@ -40,7 +40,7 @@ namespace MobileOperator.Objects
             this.name = mySQL.select("id = " + id)[0][1];
         }
         public int id { get; private set; }
- 
+
         public string Name
         {
             get { return name; }
@@ -50,7 +50,7 @@ namespace MobileOperator.Objects
                     return;
                 name = value;
                 mySQL.TableName = tableName;
-                mySQL.update("name = " + name, "id = " + id);
+                mySQL.update("name = '" + name + "'", "id = " + id);
             }
         }
     }
