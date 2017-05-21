@@ -17,6 +17,7 @@ namespace MobileOperator
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new OwnerForm());
+            //Тут был Коля
         }
     }
 }
