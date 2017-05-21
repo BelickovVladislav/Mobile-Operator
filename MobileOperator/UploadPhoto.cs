@@ -15,12 +15,20 @@ namespace MobileOperator
     public partial class UploadPhotoForm : Form
     {
         private Owner owner;
+        private MobilePhone phone;
 
         public UploadPhotoForm(Owner owner)
         {
             InitializeComponent();
             this.owner = owner;
             textBoxURL.Text = owner.photoUrl;
+        }
+
+        public UploadPhotoForm(MobilePhone phone)
+        {
+            InitializeComponent();
+            this.phone = phone;
+            textBoxURL.Text = phone.photoUrl != null ? phone.photoUrl : "";
         }
 
         private void Upload_Click(object sender, EventArgs e)

@@ -46,6 +46,7 @@ namespace MobileOperator.Objects
             mySQL.TableName = tableName;
             mySQL.delete("id = " + id);
         }
+        public MobilePhone() { }
         public MobilePhone(int id)
         {
             mySQL = MySQL.getInstance();
@@ -103,10 +104,10 @@ namespace MobileOperator.Objects
             get { return _modelPhone; }
             set
             {
-                if (_modelPhone.id == value.id)
+                if (_modelPhone.Id == value.Id)
                     return;
                 _modelPhone = value;
-                mySQL.update("`id_model_Phone` = " + _modelPhone.id, "`id` = " + "'" + id + "'");
+                mySQL.update("`id_model_Phone` = " + _modelPhone.Id, "`id` = " + "'" + id + "'");
             }
         }
         public string photoUrl

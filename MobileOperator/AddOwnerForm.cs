@@ -30,7 +30,7 @@ namespace MobileOperator
             SurnameBox.Text = owner.surname;
             FirstNameBox.Text = owner.firstName;
             MiddleNameBox.Text = owner.middleName;
-            fillTariffBox();
+            FillTariffBox();
             foreach (var service in owner.services)
                 useSerivce.Add(service.Name);
             foreach (var service in Service.getList())
@@ -40,16 +40,20 @@ namespace MobileOperator
             ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
             ServiceLstUse.Items.AddRange(useSerivce.ToArray());
 
-            fillMobilePhoneBox();
+            FillMobilePhoneBox();
             SexBox.SelectedIndex = owner.sex ? 0 : 1;
             PassportBox.Text = owner.passportNumber;
             NumberPhoneBox.Text = owner.mobileNumber;
-            PhotoBox.Load(owner.photoUrl);
+            try
+            {
+                PhotoBox.Load(owner.photoUrl);
+            }
+            catch (Exception e) { }
             AddOwnerBtn.Text = "Сохранить";
 
         }
 
-        private void fillTariffBox()
+        private void FillTariffBox()
         {
             TariffBox.Items.Clear();
             foreach (var tariff in Tariff.getList())
@@ -60,16 +64,14 @@ namespace MobileOperator
             }
         }
 
-        private void fillMobilePhoneBox()
+        private void FillMobilePhoneBox()
         {
             PhoneBox.Items.Clear();
             foreach (var mobile in MobilePhone.getList())
             {
-
                 PhoneBox.Items.Add(mobile.producer.Name + " " + mobile.modelPhone.Name);
                 if (mobile.producer.Name + " " + mobile.modelPhone.Name == owner.mobilePhone.producer.Name + " " + owner.mobilePhone.modelPhone.Name)
                     PhoneBox.SelectedIndex = PhoneBox.Items.Count - 1;
-
             }
         }
 
@@ -93,7 +95,6 @@ namespace MobileOperator
 
             ServiceLstUse.Items.AddRange(useSerivce.ToArray());
             ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
-
         }
 
         private void ServiceLstUse_Click(object sender, EventArgs e)
@@ -109,11 +110,7 @@ namespace MobileOperator
 
             ServiceLstUse.Items.AddRange(useSerivce.ToArray());
             ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
-
         }
-
-
-
 
         private void AddOwnerBtn_Click(object sender, EventArgs e)
         {
@@ -146,15 +143,13 @@ namespace MobileOperator
             owner.passportNumber = PassportBox.Text;
             owner.mobileNumber = NumberPhoneBox.Text;
             this.Close();
-
-
         }
 
         private void AddPhoneBtn_Click(object sender, EventArgs e)
         {
             AddMobilePhone addMobile = new AddMobilePhone();
             addMobile.ShowDialog();
-            fillMobilePhoneBox();
+            FillMobilePhoneBox();
         }
         
 
@@ -162,7 +157,7 @@ namespace MobileOperator
         {
             AddTariffForm tariffForm = new AddTariffForm();
             tariffForm.ShowDialog();
-            fillTariffBox();
+            FillTariffBox();
         }
     }
 }

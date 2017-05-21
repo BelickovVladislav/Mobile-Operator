@@ -31,7 +31,7 @@
             this.Producerlbl = new System.Windows.Forms.Label();
             this.TypePhoneLbl = new System.Windows.Forms.Label();
             this.OSlbl = new System.Windows.Forms.Label();
-            this.ModelPhone = new System.Windows.Forms.Label();
+            this.ModelPhoneLabel = new System.Windows.Forms.Label();
             this.Pricelbl = new System.Windows.Forms.Label();
             this.ProducerBox = new System.Windows.Forms.ComboBox();
             this.TypePhoneBox = new System.Windows.Forms.ComboBox();
@@ -77,14 +77,14 @@
             this.OSlbl.TabIndex = 2;
             this.OSlbl.Text = "Операционная система";
             // 
-            // ModelPhone
+            // ModelPhoneLabel
             // 
-            this.ModelPhone.AutoSize = true;
-            this.ModelPhone.Location = new System.Drawing.Point(13, 132);
-            this.ModelPhone.Name = "ModelPhone";
-            this.ModelPhone.Size = new System.Drawing.Size(98, 13);
-            this.ModelPhone.TabIndex = 3;
-            this.ModelPhone.Text = "Модель телефона";
+            this.ModelPhoneLabel.AutoSize = true;
+            this.ModelPhoneLabel.Location = new System.Drawing.Point(13, 132);
+            this.ModelPhoneLabel.Name = "ModelPhoneLabel";
+            this.ModelPhoneLabel.Size = new System.Drawing.Size(98, 13);
+            this.ModelPhoneLabel.TabIndex = 3;
+            this.ModelPhoneLabel.Text = "Модель телефона";
             // 
             // Pricelbl
             // 
@@ -178,6 +178,7 @@
             this.AddMobilePhoneBtn.TabIndex = 14;
             this.AddMobilePhoneBtn.Text = "Добавить мобильный телефон";
             this.AddMobilePhoneBtn.UseVisualStyleBackColor = true;
+            this.AddMobilePhoneBtn.Click += new System.EventHandler(this.AddMobilePhoneBtn_Click);
             // 
             // PhotoUploadBtn
             // 
@@ -187,6 +188,7 @@
             this.PhotoUploadBtn.TabIndex = 15;
             this.PhotoUploadBtn.Text = "Загрузить";
             this.PhotoUploadBtn.UseVisualStyleBackColor = true;
+            this.PhotoUploadBtn.Click += new System.EventHandler(this.PhotoUploadBtn_Click);
             // 
             // PhotoLbl
             // 
@@ -234,7 +236,7 @@
             this.Controls.Add(this.TypePhoneBox);
             this.Controls.Add(this.ProducerBox);
             this.Controls.Add(this.Pricelbl);
-            this.Controls.Add(this.ModelPhone);
+            this.Controls.Add(this.ModelPhoneLabel);
             this.Controls.Add(this.OSlbl);
             this.Controls.Add(this.TypePhoneLbl);
             this.Controls.Add(this.Producerlbl);
@@ -254,7 +256,7 @@
         private System.Windows.Forms.Label Producerlbl;
         private System.Windows.Forms.Label TypePhoneLbl;
         private System.Windows.Forms.Label OSlbl;
-        private System.Windows.Forms.Label ModelPhone;
+        private System.Windows.Forms.Label ModelPhoneLabel;
         private System.Windows.Forms.Label Pricelbl;
         private System.Windows.Forms.ComboBox ProducerBox;
         private System.Windows.Forms.ComboBox TypePhoneBox;
