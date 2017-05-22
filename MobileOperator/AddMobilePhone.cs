@@ -91,5 +91,23 @@ namespace MobileOperator
                     foreach (var modelPhone in ModelPhone.GetListByProducerId(producer.id))
                         ModelPhoneBox.Items.Add(modelPhone.Name);
         }
+
+        private void AddProducerBtn_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm("Producer");
+            form.ShowDialog();
+        }
+
+        private void AddTypePhoneBtn_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm("PhoneType");
+            form.ShowDialog();
+        }
+
+        private void AddOSBtn_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm("OS");
+            form.ShowDialog(); 
+        }
     }
 }

@@ -147,6 +147,7 @@
             this.AddProducerBtn.TabIndex = 10;
             this.AddProducerBtn.Text = "Добавить";
             this.AddProducerBtn.UseVisualStyleBackColor = true;
+            this.AddProducerBtn.Click += new System.EventHandler(this.AddProducerBtn_Click);
             // 
             // AddTypePhoneBtn
             // 
@@ -156,6 +157,7 @@
             this.AddTypePhoneBtn.TabIndex = 11;
             this.AddTypePhoneBtn.Text = "Добавить";
             this.AddTypePhoneBtn.UseVisualStyleBackColor = true;
+            this.AddTypePhoneBtn.Click += new System.EventHandler(this.AddTypePhoneBtn_Click);
             // 
             // AddOSBtn
             // 
@@ -165,6 +167,7 @@
             this.AddOSBtn.TabIndex = 12;
             this.AddOSBtn.Text = "Добавить";
             this.AddOSBtn.UseVisualStyleBackColor = true;
+            this.AddOSBtn.Click += new System.EventHandler(this.AddOSBtn_Click);
             // 
             // AddModelPhoneBtn
             // 

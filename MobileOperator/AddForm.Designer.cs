@@ -45,8 +45,9 @@
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(216, 23);
             this.AddBtn.TabIndex = 1;
-            this.AddBtn.Text = "button1";
+            this.AddBtn.Text = "Добавить";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // AddForm
             // 
