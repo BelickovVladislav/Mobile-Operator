@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -26,7 +27,8 @@ namespace MobileOperator.Objects
             catch
             {
                 MessageBox.Show("Проблема подключение к Базе Данных, пожалуйста проверьте подключение!");
-                throw;
+                this.close();
+                Environment.Exit(0);
             }
         }
         public string TableName
