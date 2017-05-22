@@ -103,6 +103,7 @@
             this.ProducerBox.Name = "ProducerBox";
             this.ProducerBox.Size = new System.Drawing.Size(121, 21);
             this.ProducerBox.TabIndex = 5;
+            this.ProducerBox.SelectedValueChanged += new System.EventHandler(this.SelectedValueChange);
             // 
             // TypePhoneBox
             // 

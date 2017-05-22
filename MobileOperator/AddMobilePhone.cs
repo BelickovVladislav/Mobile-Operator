@@ -82,5 +82,14 @@ namespace MobileOperator
             MessageBox.Show("Телефон успешно добавлен!");
             this.Close();
         }
+
+        private void SelectedValueChange(object sender, EventArgs e)
+        {
+            ModelPhoneBox.Items.Clear();
+            foreach (var producer in Producer.getList())
+                if (producer.Name == (string)ProducerBox.SelectedItem)
+                    foreach (var modelPhone in ModelPhone.GetListByProducerId(producer.id))
+                        ModelPhoneBox.Items.Add(modelPhone.Name);
+        }
     }
 }
