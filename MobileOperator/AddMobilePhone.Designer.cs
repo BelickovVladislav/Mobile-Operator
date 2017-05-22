@@ -97,6 +97,7 @@
             // 
             // ProducerBox
             // 
+            this.ProducerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProducerBox.FormattingEnabled = true;
             this.ProducerBox.Location = new System.Drawing.Point(161, 19);
             this.ProducerBox.Name = "ProducerBox";
@@ -105,6 +106,7 @@
             // 
             // TypePhoneBox
             // 
+            this.TypePhoneBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TypePhoneBox.FormattingEnabled = true;
             this.TypePhoneBox.Location = new System.Drawing.Point(161, 57);
             this.TypePhoneBox.Name = "TypePhoneBox";
@@ -113,6 +115,7 @@
             // 
             // OSBox
             // 
+            this.OSBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.OSBox.FormattingEnabled = true;
             this.OSBox.Location = new System.Drawing.Point(161, 95);
             this.OSBox.Name = "OSBox";
@@ -121,6 +124,7 @@
             // 
             // ModelPhoneBox
             // 
+            this.ModelPhoneBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ModelPhoneBox.FormattingEnabled = true;
             this.ModelPhoneBox.Location = new System.Drawing.Point(161, 132);
             this.ModelPhoneBox.Name = "ModelPhoneBox";
@@ -204,6 +208,7 @@
             this.PhotoBox.Location = new System.Drawing.Point(314, 167);
             this.PhotoBox.Name = "PhotoBox";
             this.PhotoBox.Size = new System.Drawing.Size(75, 69);
+            this.PhotoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PhotoBox.TabIndex = 17;
             this.PhotoBox.TabStop = false;
             // 

@@ -13,10 +13,12 @@ namespace MobileOperator
 {
     public partial class AddMobilePhone : Form
     {
-        private MobilePhone Phone = new MobilePhone();
+        private string photoUrl;
 
         public AddMobilePhone()
         {
+            this.photoUrl = "";
+
             InitializeComponent();
             foreach (var producer in Producer.getList())
                 ProducerBox.Items.Add(producer.Name);
@@ -24,24 +26,61 @@ namespace MobileOperator
                 TypePhoneBox.Items.Add(typePhone.Name);
             foreach (var os in OS.getList())
                 OSBox.Items.Add(os.Name);
-            foreach (var modelPhone in ModelPhone.GetList())
-                ModelPhoneBox.Items.Add(modelPhone.Name);
+            
         }
 
         private void PhotoUploadBtn_Click(object sender, EventArgs e)
         {
-            UploadPhotoForm uploadPhoto = new UploadPhotoForm(Phone);
+            
+            UploadPhotoForm uploadPhoto = new UploadPhotoForm(this.photoUrl);
             uploadPhoto.ShowDialog();
-            this.PhotoBox.Load(Phone.photoUrl);
+            this.photoUrl = uploadPhoto.url;
+            this.PhotoBox.Load(this.photoUrl);
         }
 
         private void AddMobilePhoneBtn_Click(object sender, EventArgs e)
         {
-            Phone.producer.Name = ProducerBox.Text;
-            Phone.phoneType.Name = TypePhoneBox.Text;
-            Phone.os.Name = OSBox.Text;
-            Phone.modelPhone.Name = ModelPhoneBox.Text;
-            Phone.price = Convert.ToDouble(PriceBox.Text);
+            Producer prod = null;
+            PhoneType type = null;
+            OS _os = null;
+            ModelPhone model = null;
+
+            foreach (var producer in Producer.getList())
+                if (producer.Name == (string)ProducerBox.SelectedItem)
+                    prod = producer;
+            foreach (var typePhone in PhoneType.getList())
+                if (typePhone.Name == (string)TypePhoneBox.SelectedItem)
+                    type = typePhone;
+
+            foreach (var os in OS.getList())
+                if (os.Name == (string)OSBox.SelectedItem)
+                    _os = os;
+            foreach (var modelPhone in ModelPhone.GetList())
+                if (modelPhone.Name == (string)ModelPhoneBox.SelectedItem)
+                    model = modelPhone;
+            if (model == null) {
+                MessageBox.Show("Выбирете модель телефона");
+                return;
+            }
+            if (prod == null)
+            {
+                MessageBox.Show("Выбирете производителя телефона");
+                return;
+            }
+            if (type == null)
+            {
+                MessageBox.Show("Выбирете производителя телефона");
+                return;
+            }
+            if (_os == null)
+            {
+                MessageBox.Show("Выбирете ОС телефона");
+                return;
+            }
+
+            MobilePhone.Add(prod,type,_os ,model,photoUrl,Convert.ToDouble(PriceBox.Text));
+            MessageBox.Show("Телефон успешно добавлен!");
+            this.Close();
         }
     }
 }

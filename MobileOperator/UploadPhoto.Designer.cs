@@ -90,7 +90,7 @@
         #endregion
 
         private System.Windows.Forms.Button Upload;
-        private System.Windows.Forms.TextBox textBoxURL;
+        public System.Windows.Forms.TextBox textBoxURL;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Label label1;
     }

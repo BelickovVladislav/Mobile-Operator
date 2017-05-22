@@ -16,6 +16,7 @@ namespace MobileOperator
         private Owner owner;
         private List<string> useSerivce;
         private List<string> UnuseSerivce;
+        private string url;
 
 
         public AddOwnerForm(Owner owner = null)
@@ -24,6 +25,7 @@ namespace MobileOperator
             InitializeComponent();
             useSerivce = new List<string>();
             UnuseSerivce = new List<string>();
+            url = owner.photoUrl;
             ServiceLstUse.Items.Clear();
             ServiceLstUnuse.Items.Clear();
             if (owner == null) return;
@@ -77,9 +79,16 @@ namespace MobileOperator
 
         private void PhotoUploadBtn_Click(object sender, EventArgs e)
         {
-            UploadPhotoForm uploadPhoto = new UploadPhotoForm(owner);
+            
+            UploadPhotoForm uploadPhoto = new UploadPhotoForm(url);
+
             uploadPhoto.ShowDialog();
-            this.PhotoBox.Load(owner.photoUrl);
+            url = uploadPhoto.url;
+            try
+            {
+                this.PhotoBox.Load(url);
+            }
+            catch (Exception ex) { }
         }
 
         private void ServiceLstUnuse_Click(object sender, EventArgs e)
@@ -142,6 +151,7 @@ namespace MobileOperator
             owner.sex = SexBox.SelectedIndex == 0;
             owner.passportNumber = PassportBox.Text;
             owner.mobileNumber = NumberPhoneBox.Text;
+            owner.photoUrl = url;
             this.Close();
         }
 

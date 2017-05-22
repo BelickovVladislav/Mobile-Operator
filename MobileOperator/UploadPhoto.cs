@@ -14,26 +14,22 @@ namespace MobileOperator
 {
     public partial class UploadPhotoForm : Form
     {
-        private Owner owner;
-        private MobilePhone phone;
+        public string url { get; set; }
 
-        public UploadPhotoForm(Owner owner)
+        public UploadPhotoForm(string  url)
         {
             InitializeComponent();
-            this.owner = owner;
-            textBoxURL.Text = owner.photoUrl;
+            this.url = url;
+            textBoxURL.Text = url;
         }
 
-        public UploadPhotoForm(MobilePhone phone)
-        {
-            InitializeComponent();
-            this.phone = phone;
-            textBoxURL.Text = phone.photoUrl != null ? phone.photoUrl : "";
-        }
+      
 
         private void Upload_Click(object sender, EventArgs e)
         {
-            owner.photoUrl = textBoxURL.Text.Replace('\\', '/');
+            url = textBoxURL.Text.Replace('\\', '/');
+            this.Close();
+           
         }
 
         private void Save_Click(object sender, EventArgs e)

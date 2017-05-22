@@ -38,7 +38,7 @@ namespace MobileOperator.Objects
             mySQL.TableName = tableName;
             mySQL.insert("`id_producer`, `id_phone_type`, `id_os`, `id_model_phone`, `photo_url`, `price`",
                 string.Format("'{0}', '{1}', '{2}', '{3}', '{4}', '{5}'",
-                producer.id, phoneType.id, os.id, photoUrl, price));
+                producer.id, phoneType.id, os.id,modelPhone.Id, photoUrl, price));
         }
         public static void Delete(int id)
         {
