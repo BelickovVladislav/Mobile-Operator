@@ -52,6 +52,7 @@
             this.AddProducerBtn.TabIndex = 1;
             this.AddProducerBtn.Text = "Добавить";
             this.AddProducerBtn.UseVisualStyleBackColor = true;
+            this.AddProducerBtn.Click += new System.EventHandler(this.AddProducerBtn_Click);
             // 
             // NameBox
             // 
@@ -68,6 +69,7 @@
             this.AddBtn.TabIndex = 3;
             this.AddBtn.Text = "Добавить модель";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // ProducerLbl
             // 

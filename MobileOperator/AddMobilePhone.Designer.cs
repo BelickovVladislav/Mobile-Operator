@@ -177,6 +177,7 @@
             this.AddModelPhoneBtn.TabIndex = 13;
             this.AddModelPhoneBtn.Text = "Добавить";
             this.AddModelPhoneBtn.UseVisualStyleBackColor = true;
+            this.AddModelPhoneBtn.Click += new System.EventHandler(this.AddModelPhoneBtn_Click);
             // 
             // AddMobilePhoneBtn
             // 

@@ -109,5 +109,11 @@ namespace MobileOperator
             AddForm form = new AddForm("OS");
             form.ShowDialog(); 
         }
+
+        private void AddModelPhoneBtn_Click(object sender, EventArgs e)
+        {
+            AddModelPhone form = new AddModelPhone();
+            form.ShowDialog();
+        }
     }
 }
