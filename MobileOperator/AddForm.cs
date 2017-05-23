@@ -24,6 +24,7 @@ namespace MobileOperator
                 case "Producer": Text = "Добавления производителя"; break;
                 case "PhoneType": Text = "Добавления типа телефона"; break;
                 case "OS": Text = "Добавления операционной системы"; break;
+                    //test
             }
         }
 
