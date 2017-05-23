@@ -18,7 +18,6 @@ namespace MobileOperator.Objects
         private string _mobileNumber;
         private List<Service> _services;
 
-
         public Owner(int id)
         {
             _services = new List<Service>();

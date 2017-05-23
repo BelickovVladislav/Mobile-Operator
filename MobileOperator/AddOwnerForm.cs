@@ -18,7 +18,6 @@ namespace MobileOperator
         private List<string> UnuseSerivce;
         private string url;
 
-
         public AddOwnerForm(Owner owner = null)
         {
             this.owner = owner;
