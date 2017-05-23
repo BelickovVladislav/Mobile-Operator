@@ -49,10 +49,13 @@ namespace MobileOperator
             }
             else
             {
-                MessageBox.Show(this,"Вы действительно желаете удалить данную запись?");//TODO Owner.delete(id);
+                if (MessageBox.Show("Вы действительно желаете удалить данную запись?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Objects.Owner.Delete(Convert.ToInt32(OwnerView.Rows[e.RowIndex].Cells[0].Value));
+                    OwnerView.Rows.RemoveAt(e.RowIndex);
+                    MessageBox.Show("Пользователь успешно" + OwnerView.Rows[e.RowIndex].Cells[0].Value + "удалён.");
+                }
             }
-
-
         }
     }
 }
