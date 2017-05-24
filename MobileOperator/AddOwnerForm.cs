@@ -18,16 +18,43 @@ namespace MobileOperator
         private List<string> UnuseSerivce;
         private string url;
 
-        public AddOwnerForm(Owner owner = null)
+        public AddOwnerForm()
         {
-            this.owner = owner;
             InitializeComponent();
+
+            useSerivce = new List<string>();
+            UnuseSerivce = new List<string>();
+            url = "";
+            ServiceLstUse.Items.Clear();
+            ServiceLstUnuse.Items.Clear();
+            SurnameBox.Text = "";
+            FirstNameBox.Text = "";
+            MiddleNameBox.Text = "";
+
+            ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
+            ServiceLstUse.Items.AddRange(useSerivce.ToArray());
+
+            //SexBox.SelectedIndex = ;
+            PassportBox.Text ="";
+            NumberPhoneBox.Text = "";
+            try
+            {
+                PhotoBox.Load("DefaultImage");
+            }
+            catch (Exception e) { }
+        }
+
+        public AddOwnerForm(Owner owner)
+        {
+            InitializeComponent();
+
+            this.owner = owner;
             useSerivce = new List<string>();
             UnuseSerivce = new List<string>();
             url = owner.photoUrl;
             ServiceLstUse.Items.Clear();
             ServiceLstUnuse.Items.Clear();
-            if (owner == null) return;
+            if (owner == null) Close();
             SurnameBox.Text = owner.surname;
             FirstNameBox.Text = owner.firstName;
             MiddleNameBox.Text = owner.middleName;

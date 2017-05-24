@@ -57,5 +57,53 @@ namespace MobileOperator
                 }
             }
         }
+
+        private void AddOwnerMenu_Click(object sender, EventArgs e)
+        {
+            AddOwnerForm form = new AddOwnerForm();
+            form.ShowDialog();
+        }
+
+        private void AddMobilePhoneMenu_Click(object sender, EventArgs e)
+        {
+            AddMobilePhone form = new AddMobilePhone();
+            form.ShowDialog();
+        }
+
+        private void AddProducerMenu_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm("Producer");
+            form.ShowDialog();
+        }
+
+        private void AddPhoneTypeMenu_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm("PhoneType");
+            form.ShowDialog();
+        }
+
+        private void AddOSMenu_Click(object sender, EventArgs e)
+        {
+            AddForm form = new AddForm("OS");
+            form.ShowDialog();
+        }
+
+        private void AddModelPhoneMenu_Click(object sender, EventArgs e)
+        {
+            AddMobilePhone form = new AddMobilePhone();
+            form.ShowDialog();
+        }
+
+        private void AddTarifMenu_Click(object sender, EventArgs e)
+        {
+            AddTariffForm form = new AddTariffForm();
+            form.ShowDialog();
+        }
+
+        private void AddServiceMenu_Click(object sender, EventArgs e)
+        {
+            AddServiceForm form = new AddServiceForm();
+            form.ShowDialog();
+        }
     }
 }
