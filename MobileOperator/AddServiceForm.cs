@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileOperator.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace MobileOperator
         public AddServiceForm()
         {
             InitializeComponent();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            Service.Add(NameBox.Text, DescriptionBox.Text, Convert.ToInt32(PriceBox.Text));
+            MessageBox.Show("Услуга успешно добавлена.");
+            Close();
         }
     }
 }

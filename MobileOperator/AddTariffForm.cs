@@ -67,7 +67,7 @@ namespace MobileOperator
             Tariff.Add(NameBox.Text, DescriptionBox.Text, double.Parse(PriceBox.Text));
             List<Tariff> tarrifs = Tariff.getList();
             tarrifs[tarrifs.Count-1].Services = services;
-            this.Close();
+            Close();
         }
     }
 }

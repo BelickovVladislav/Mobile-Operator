@@ -94,6 +94,7 @@
             this.AddBtn.TabIndex = 6;
             this.AddBtn.Text = "Добавить";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // AddServiceForm
             // 

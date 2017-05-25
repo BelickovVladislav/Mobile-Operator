@@ -17,12 +17,16 @@ namespace MobileOperator
         public OwnerForm()
         {
             InitializeComponent();
-            
-            foreach (var user in list)
-            { 
-                OwnerView.Rows.Add(user.id, user.firstName+" "+user.middleName+" "+user.surname, user.mobileNumber, user.passportNumber, "x");
-            }
+            openOwner();
+        }
 
+        public void openOwner()
+        {
+            OwnerView.Rows.Clear();
+            foreach (var user in list)
+            {
+                OwnerView.Rows.Add(user.id, user.firstName + " " + user.middleName + " " + user.surname, user.mobileNumber, user.passportNumber, "x");
+            }
         }
         
         private void OwnerForm_Load(object sender, EventArgs e)
@@ -53,7 +57,7 @@ namespace MobileOperator
                 {
                     Objects.Owner.Delete(Convert.ToInt32(OwnerView.Rows[e.RowIndex].Cells[0].Value));
                     OwnerView.Rows.RemoveAt(e.RowIndex);
-                    MessageBox.Show("Пользователь успешно" + OwnerView.Rows[e.RowIndex].Cells[0].Value + "удалён.");
+                    MessageBox.Show("Пользователь успешно удалён.");
                 }
             }
         }
@@ -62,6 +66,7 @@ namespace MobileOperator
         {
             AddOwnerForm form = new AddOwnerForm();
             form.ShowDialog();
+            openOwner();
         }
 
         private void AddMobilePhoneMenu_Click(object sender, EventArgs e)
