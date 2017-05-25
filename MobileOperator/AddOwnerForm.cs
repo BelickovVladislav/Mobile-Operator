@@ -24,6 +24,11 @@ namespace MobileOperator
 
             useSerivce = new List<string>();
             UnuseSerivce = new List<string>();
+
+            foreach (var service in Service.getList())
+                if (!useSerivce.Contains(service.Name))
+                    UnuseSerivce.Add(service.Name);
+
             url = "";
             ServiceLstUse.Items.Clear();
             ServiceLstUnuse.Items.Clear();
@@ -34,7 +39,9 @@ namespace MobileOperator
             ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
             ServiceLstUse.Items.AddRange(useSerivce.ToArray());
 
-            //SexBox.SelectedIndex = ;
+            FillTariffBox();
+            FillMobilePhoneBox();
+
             PassportBox.Text ="";
             NumberPhoneBox.Text = "";
             try
@@ -59,6 +66,8 @@ namespace MobileOperator
             FirstNameBox.Text = owner.firstName;
             MiddleNameBox.Text = owner.middleName;
             FillTariffBox();
+            FillMobilePhoneBox();
+
             foreach (var service in owner.services)
                 useSerivce.Add(service.Name);
             foreach (var service in Service.getList())
@@ -67,8 +76,7 @@ namespace MobileOperator
 
             ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
             ServiceLstUse.Items.AddRange(useSerivce.ToArray());
-
-            FillMobilePhoneBox();
+            
             SexBox.SelectedIndex = owner.sex ? 0 : 1;
             PassportBox.Text = owner.passportNumber;
             NumberPhoneBox.Text = owner.mobileNumber;
@@ -78,7 +86,6 @@ namespace MobileOperator
             }
             catch (Exception e) { }
             AddOwnerBtn.Text = "Сохранить";
-
         }
 
         private void FillTariffBox()
@@ -87,8 +94,12 @@ namespace MobileOperator
             foreach (var tariff in Tariff.getList())
             {
                 TariffBox.Items.Add(tariff.Name);
-                if (tariff.Name == owner.tariff.Name)
-                    TariffBox.SelectedIndex = TariffBox.Items.Count - 1;
+                try
+                {
+                    if (tariff.Name == owner.tariff.Name)
+                        TariffBox.SelectedIndex = TariffBox.Items.Count - 1;
+                }
+                catch { }
             }
         }
 
@@ -98,8 +109,12 @@ namespace MobileOperator
             foreach (var mobile in MobilePhone.getList())
             {
                 PhoneBox.Items.Add(mobile.producer.Name + " " + mobile.modelPhone.Name);
-                if (mobile.producer.Name + " " + mobile.modelPhone.Name == owner.mobilePhone.producer.Name + " " + owner.mobilePhone.modelPhone.Name)
-                    PhoneBox.SelectedIndex = PhoneBox.Items.Count - 1;
+                try
+                {
+                    if (mobile.producer.Name + " " + mobile.modelPhone.Name == owner.mobilePhone.producer.Name + " " + owner.mobilePhone.modelPhone.Name)
+                        PhoneBox.SelectedIndex = PhoneBox.Items.Count - 1;
+                }
+                catch { }
             }
         }
 
@@ -149,36 +164,52 @@ namespace MobileOperator
 
         private void AddOwnerBtn_Click(object sender, EventArgs e)
         {
-            if (this.owner == null)
-                return; //TODO Owner.Add();
-            owner.firstName = FirstNameBox.Text;
-            owner.middleName = MiddleNameBox.Text;
-            owner.surname = SurnameBox.Text;
-            foreach (var mobile in MobilePhone.getList())
+            if (owner == null)
             {
-                if (PhoneBox.SelectedItem.ToString() == mobile.producer.Name + " " + mobile.modelPhone.Name)
+                Tariff Tariff = null;
+                MobilePhone Mobile = null;
+                bool sex = SexBox.Text == "Мужской" ? true : false;
+                foreach (var tariff in Tariff.getList())
+                    if (tariff.Name == TariffBox.Text)
+                        Tariff = tariff;
+                foreach (var mobile in MobilePhone.getList())
+                    if (mobile.producer.Name + " " + mobile.modelPhone.Name == PhoneBox.Text)
+                        Mobile = mobile;
+                Objects.Owner.Add(Mobile, Tariff, SurnameBox.Text, MiddleNameBox.Text, FirstNameBox.Text, sex, url, PassportBox.Text, NumberPhoneBox.Text);
+                Close();
+            }
+            else
+            {
+                owner.firstName = FirstNameBox.Text;
+                owner.middleName = MiddleNameBox.Text;
+                owner.surname = SurnameBox.Text;
+                foreach (var mobile in MobilePhone.getList())
                 {
+                    if (PhoneBox.SelectedItem.ToString() == mobile.producer.Name + " " + mobile.modelPhone.Name)
+                    {
 
-                    owner.mobilePhone = mobile;
-                    MessageBox.Show(owner.mobilePhone.id.ToString());
-                    break;
+                        owner.mobilePhone = mobile;
+                        MessageBox.Show(owner.mobilePhone.id.ToString());
+                        break;
+                    }
                 }
+                foreach (var tariff in Tariff.getList())
+                {
+                    if (TariffBox.Text == tariff.Name)
+                        owner.tariff = tariff;
+                }
+                List<Service> services = new List<Service>();
+                foreach (var service in Service.getList())
+                    if (useSerivce.Contains(service.Name))
+                        services.Add(service);
+                owner.services = services;
+                owner.sex = SexBox.SelectedIndex == 0;
+                owner.passportNumber = PassportBox.Text;
+                owner.mobileNumber = NumberPhoneBox.Text;
+                owner.photoUrl = url;
+                Close();
             }
-            foreach (var tariff in Tariff.getList())
-            {
-                if (TariffBox.Text == tariff.Name)
-                    owner.tariff = tariff;
-            }
-            List<Service> services = new List<Service>();
-            foreach (var service in Service.getList())
-                if (useSerivce.Contains(service.Name))
-                    services.Add(service);
-            owner.services = services;
-            owner.sex = SexBox.SelectedIndex == 0;
-            owner.passportNumber = PassportBox.Text;
-            owner.mobileNumber = NumberPhoneBox.Text;
-            owner.photoUrl = url;
-            this.Close();
+            
         }
 
         private void AddPhoneBtn_Click(object sender, EventArgs e)
