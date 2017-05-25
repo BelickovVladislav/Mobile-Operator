@@ -17,11 +17,12 @@ namespace MobileOperator
         private List<string> useSerivce;
         private List<string> UnuseSerivce;
         private string url;
+        private double price;
 
         public AddOwnerForm()
         {
             InitializeComponent();
-
+            price = 0;
             useSerivce = new List<string>();
             UnuseSerivce = new List<string>();
 
@@ -42,7 +43,7 @@ namespace MobileOperator
             FillTariffBox();
             FillMobilePhoneBox();
 
-            PassportBox.Text ="";
+            PassportBox.Text = "";
             NumberPhoneBox.Text = "";
             try
             {
@@ -76,7 +77,7 @@ namespace MobileOperator
 
             ServiceLstUnuse.Items.AddRange(UnuseSerivce.ToArray());
             ServiceLstUse.Items.AddRange(useSerivce.ToArray());
-            
+
             SexBox.SelectedIndex = owner.sex ? 0 : 1;
             PassportBox.Text = owner.passportNumber;
             NumberPhoneBox.Text = owner.mobileNumber;
@@ -120,7 +121,7 @@ namespace MobileOperator
 
         private void PhotoUploadBtn_Click(object sender, EventArgs e)
         {
-            
+
             UploadPhotoForm uploadPhoto = new UploadPhotoForm(url);
 
             uploadPhoto.ShowDialog();
@@ -209,7 +210,7 @@ namespace MobileOperator
                 owner.photoUrl = url;
                 Close();
             }
-            
+
         }
 
         private void AddPhoneBtn_Click(object sender, EventArgs e)
@@ -218,13 +219,37 @@ namespace MobileOperator
             addMobile.ShowDialog();
             FillMobilePhoneBox();
         }
-        
+
 
         private void AddTariffBtn_Click(object sender, EventArgs e)
         {
             AddTariffForm tariffForm = new AddTariffForm();
             tariffForm.ShowDialog();
             FillTariffBox();
+        }
+
+        private void TariffBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            resultPriceBox.Text = "Ежемесячная плата " + resultPrice() + " руб.";
+        }
+
+        public double resultPrice()
+        {
+            price = 0;
+            foreach (var tariff in Tariff.getList())
+                if (tariff.Name == TariffBox.Text)
+                    price += tariff.Price;
+            for (int i = 0; i < ServiceLstUse.Items.Count; i++)
+            {
+                foreach (var serviceName in Service.getList())
+                {
+                    if (serviceName.Name == ServiceLstUse.Items[i].ToString())
+                    {
+                        price += serviceName.Price;
+                    }
+                }
+            }
+            return price;
         }
     }
 }

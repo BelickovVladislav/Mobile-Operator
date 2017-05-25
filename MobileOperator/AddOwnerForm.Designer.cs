@@ -53,9 +53,9 @@
             this.SurnameLbl = new System.Windows.Forms.Label();
             this.FirstNameLbl = new System.Windows.Forms.Label();
             this.MiddleNameLbl = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.resultPriceBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoBox)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.resultPriceBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // SurnameBox
@@ -134,6 +134,7 @@
             this.TariffBox.Name = "TariffBox";
             this.TariffBox.Size = new System.Drawing.Size(131, 21);
             this.TariffBox.TabIndex = 6;
+            this.TariffBox.SelectedIndexChanged += new System.EventHandler(this.TariffBox_SelectedIndexChanged);
             // 
             // ServiceLbl
             // 
@@ -152,6 +153,7 @@
             this.ServiceLstUse.Size = new System.Drawing.Size(131, 95);
             this.ServiceLstUse.TabIndex = 17;
             this.ServiceLstUse.Click += new System.EventHandler(this.ServiceLstUse_Click);
+            this.ServiceLstUse.SelectedIndexChanged += new System.EventHandler(this.TariffBox_SelectedIndexChanged);
             // 
             // ServiceLstUnuse
             // 
@@ -161,6 +163,7 @@
             this.ServiceLstUnuse.Size = new System.Drawing.Size(131, 95);
             this.ServiceLstUnuse.TabIndex = 16;
             this.ServiceLstUnuse.Click += new System.EventHandler(this.ServiceLstUnuse_Click);
+            this.ServiceLstUnuse.SelectedIndexChanged += new System.EventHandler(this.TariffBox_SelectedIndexChanged);
             // 
             // SexLbl
             // 
@@ -281,15 +284,15 @@
             this.MiddleNameLbl.TabIndex = 31;
             this.MiddleNameLbl.Text = "Отчество";
             // 
-            // groupBox1
+            // resultPriceBox
             // 
-            this.groupBox1.Controls.Add(this.AddTariffBtn);
-            this.groupBox1.Location = new System.Drawing.Point(162, 107);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(304, 167);
-            this.groupBox1.TabIndex = 32;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ежемесячная плата: 27 руб.";
+            this.resultPriceBox.Controls.Add(this.AddTariffBtn);
+            this.resultPriceBox.Location = new System.Drawing.Point(162, 107);
+            this.resultPriceBox.Name = "resultPriceBox";
+            this.resultPriceBox.Size = new System.Drawing.Size(304, 167);
+            this.resultPriceBox.TabIndex = 32;
+            this.resultPriceBox.TabStop = false;
+            this.resultPriceBox.Text = "Ежемесячная плата: 0 руб.";
             // 
             // AddOwnerForm
             // 
@@ -320,14 +323,14 @@
             this.Controls.Add(this.MiddleNameBox);
             this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.SurnameBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.resultPriceBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddOwnerForm";
             this.Text = "Добавить клиента";
             ((System.ComponentModel.ISupportInitialize)(this.PhotoBox)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.resultPriceBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,6 +363,6 @@
         private System.Windows.Forms.Label SurnameLbl;
         private System.Windows.Forms.Label FirstNameLbl;
         private System.Windows.Forms.Label MiddleNameLbl;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox resultPriceBox;
     }
 }
