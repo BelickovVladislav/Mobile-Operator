@@ -190,7 +190,6 @@ namespace MobileOperator
                     {
 
                         owner.mobilePhone = mobile;
-                        MessageBox.Show(owner.mobilePhone.id.ToString());
                         break;
                     }
                 }

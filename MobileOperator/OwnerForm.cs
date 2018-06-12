@@ -48,6 +48,7 @@ namespace MobileOperator
                     {
                         AddOwnerForm ownerForm = new AddOwnerForm(user);
                         ownerForm.ShowDialog();
+                        openOwner();
                         return;
                     }
             }
